@@ -1,0 +1,17 @@
+# Teste GET
+curl http://localhost:8080/api/cnpj/99999999000199
+
+# Teste PUT
+curl -X PUT \
+ http://localhost:8080/api/cnpj \
+ -H 'Content-Type: application/json' \
+ -d '{"cnpj":"11111111000111", "razaoSocial":"Refrigente de Cola S/A","nomeFantasia":"Abra a Felicidade"}'
+
+curl http://localhost:8080/api/cnpj/11111111000111
+curl http://localhost:8080/api/cnpj/
+ 
+curl -X PUT \
+ http://localhost:8080/api/cnpj/list \
+ -H 'Content-Type: application/json' \
+ -d '[{"cnpj":"11111112000112", "razaoSocial":"Bandeira da Korea S/A","nomeFantasia":"Pode Ser?"},{"cnpj":"11111113000113", "razaoSocial":"Computadores Caros S/A","nomeFantasia":"Computador Maça"}]'
+ 
