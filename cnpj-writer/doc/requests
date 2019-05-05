@@ -15,3 +15,8 @@ curl -X PUT \
  -H 'Content-Type: application/json' \
  -d '[{"cnpj":"11111112000112", "razaoSocial":"Bandeira da Korea S/A","nomeFantasia":"Pode Ser?"},{"cnpj":"11111113000113", "razaoSocial":"Computadores Caros S/A","nomeFantasia":"Computador Maça"}]'
  
+ 
+curl -X PUT \
+ http://localhost:8080/api/cnpj \
+ -H 'Content-Type: application/json' \
+ -d '{"cnpj":"11111111000111", "razaoSocial":"Refrigente de Cola S/A","nomeFantasia":"Abra a Felicidade"}'
