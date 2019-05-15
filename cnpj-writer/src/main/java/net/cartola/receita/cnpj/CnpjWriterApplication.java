@@ -5,7 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import net.cartola.receita.cnpj.model.CnaeSecundaria;
 import net.cartola.receita.cnpj.model.Cnpj;
+import net.cartola.receita.cnpj.model.Socio;
 import net.cartola.receita.cnpj.repository.CnpjRepository;
 
 @SpringBootApplication
@@ -31,6 +33,21 @@ public class CnpjWriterApplication {
 				encontrado.setMunicipio("São Paulo");
 				encontrado.setUf("SP");
 				encontrado.setCorreioEletronico("cool@cool.com");
+				
+				Socio socio = new Socio();
+				socio.setNome("José Maria");
+				socio.setCpfCnpjSocio("1");
+				encontrado.addSocio(socio);
+				
+				socio = new Socio();
+				socio.setNome("Maria José");
+				socio.setCpfCnpjSocio("2");
+				encontrado.addSocio(socio);
+				
+				CnaeSecundaria cs = new CnaeSecundaria();
+				cs.setCnaeSecundaria(9832);
+				encontrado.addCnaeSecundaria(cs);
+				
 				cnpjRepository.save(encontrado);
 			} else {
 				System.out.println(encontrado);

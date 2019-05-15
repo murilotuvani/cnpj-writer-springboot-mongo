@@ -2,7 +2,9 @@ package net.cartola.receita.cnpj.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
@@ -50,6 +52,9 @@ public class Cnpj implements Serializable {
 	private boolean opcaoMei;
 	private String situacaoEspecial;
 	private Date dataSiutacaoEspecial;
+	
+	private List<CnaeSecundaria> cnaesSecundarios;
+	private List<Socio> socios;
 
 	public String getId() {
 		return id;
@@ -361,11 +366,42 @@ public class Cnpj implements Serializable {
 
 	public void setDataSiutacaoEspecial(Date dataSiutacaoEspecial) {
 		this.dataSiutacaoEspecial = dataSiutacaoEspecial;
-	}
+	}	
 	
+	public List<CnaeSecundaria> getCnaesSecundarios() {
+		return cnaesSecundarios;
+	}
+
+	public void setCnaesSecundarios(List<CnaeSecundaria> cnaesSecundarios) {
+		this.cnaesSecundarios = cnaesSecundarios;
+	}
+
+	public List<Socio> getSocios() {
+		return socios;
+	}
+
+	public void setSocios(List<Socio> socios) {
+		this.socios = socios;
+	}
+
 	@Override
     public String toString() {
         return "Cnpj{cnpj=" + cnpj + ", unidadeTipo=" + unidadeTipo + ", razaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia + ", situacaoCadastral=" + situacaoCadastral + ", dataSituacaoCadastral=" + dataSituacaoCadastral + ", motivoSituacaoCadastral=" + motivoSituacaoCadastral + ", cidadeExteriorNome=" + cidadeExteriorNome + ", paisCodigo=" + paisCodigo + ", paisNome=" + paisNome + ", codigoNaturezaJuridica=" + codigoNaturezaJuridica + ", inicioAtividade=" + inicioAtividade + ", cnae=" + cnae + ", tipoLogradouro=" + tipoLogradouro + ", logradouro=" + logradouro + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cep=" + cep + ", uf=" + uf + ", codigoMunicipio=" + codigoMunicipio + ", municipio=" + municipio + ", ddd1=" + ddd1 + ", telefone1=" + telefone1 + ", ddd2=" + ddd2 + ", telefone2=" + telefone2 + ", dddFax=" + dddFax + ", fax=" + fax + '}';
     }
 
+	public boolean addSocio(Socio socio) {
+        if (this.socios == null) {
+            this.socios = new ArrayList<>();
+        }
+        return this.socios.add(socio);
+    }
+
+    public boolean addCnaeSecundaria(CnaeSecundaria cnaeSecundaria) {
+        if (this.cnaesSecundarios == null) {
+            this.cnaesSecundarios = new ArrayList<>();
+        }
+        return this.cnaesSecundarios.add(cnaeSecundaria);
+    }
+
 }
+ 

@@ -25,6 +25,13 @@ public class CnpjRestController {
 
 	@Autowired
 	CnpjRepository cnpjRepository;
+	
+	@GetMapping("/clear")
+	public ResponseEntity<Cnpj> clear() {
+		cnpjRepository.deleteAll();
+		LOG.info("Limpando os registros");
+		return new ResponseEntity<Cnpj>(HttpStatus.NOT_FOUND);
+	}
 
 	@GetMapping("/{cnpj}")
 	public ResponseEntity<Cnpj> getByCnpj(@PathVariable("cnpj") Long cnpj) {
