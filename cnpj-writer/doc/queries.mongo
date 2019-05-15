@@ -1,0 +1,25 @@
+db.cnpj.aggregate(
+ [
+  { $group: {
+  	  _id: "$uf" ,
+  	  count: { $sum: 1}
+  	}
+  }
+ ]
+);
+
+
+db.cnpj.aggregate(
+ [
+  {
+    $match: { uf: "SP"}
+  },
+  { $group: {
+  	  _id: "$municipio" ,
+  	  count: { $sum: 1}
+  	}
+  }
+ ]
+);
+
+municipio
