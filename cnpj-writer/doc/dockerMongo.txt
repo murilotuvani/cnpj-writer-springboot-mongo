@@ -1,0 +1,6 @@
+docker run --name mongo -p 27017:27017 -d mongo
+docker run --name mongo -p 27017:27017 -v /Users/murilo/Documents/mongo-docker:/mnt/mongo-book -d mongo
+docker run --name mongo -p 27017:27017 -v C:\Users\Murilo\Documents\docker\firebird\backup:/mnt/mongo-book -d mongo
+
+mongoexport --db cnpj --collection cnpj --out cnpj.json
+mongoimport  

@@ -36,3 +36,9 @@ db.cnpj.aggregate(
 );
 
 municipio
+
+db.cnpj.find(
+ { "cnpj": "99999999999999"}
+);
+
+db.cnpj.find({"cnpj":9999999999999}).pretty();
